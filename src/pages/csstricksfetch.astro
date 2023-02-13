@@ -1,0 +1,37 @@
+---
+// import Card from '../components/Card.astro';
+// import Header from '../components/Header';
+
+const remoteData = await fetch("https://css-tricks.com/wp-json/wp/v2/posts?per_page=12&_embed").then((response) => response.json());
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CSS-Trickzz</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⭐️</text></svg>" />
+    <link rel="stylesheet" href="/style/global.css" />
+  </head>
+
+  <body>
+    <main>
+      {remoteData}
+      <!--  <Header />
+
+    <div class="grid">
+      {remoteData.map((post) => {
+        return(
+          <Card 
+            title={post.title.rendered}
+            link={post.link}
+            excerpt={post.excerpt.rendered}
+            featured_img={post.featured_media_src_url}
+          />
+        )
+      })}
+    </div> -->
+    </main>
+  </body>
+</html>

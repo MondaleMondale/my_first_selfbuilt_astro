@@ -1,0 +1,37 @@
+---
+let myJson;
+
+await fetch("https://dummyjson.com/products/")
+  .then((res) => res.json())
+
+  .then((json) => {
+    myJson = json.products;
+    // console.log("myJson", myJson);
+    buildTheFucker();
+  });
+function buildTheFucker() {
+  console.log("build The Fucker");
+  // myJson.forEach((element) => {
+  //   console.log(element.title);
+  // });
+}
+//const myJson = await fetch("https://dummyjson.com/products/").then((response) => response.json());
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro</title>
+  </head>
+
+  <body>
+    <h1>My List page</h1>
+    <p>
+      This is my JSON: {myJson.map((element) => <p>{element.title}</p>)}
+    </p>
+    <!-- <slot /> -->
+  </body>
+</html>
